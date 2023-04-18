@@ -1,0 +1,219 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+}
+:root{
+    --color-disabled :rgb(138, 199, 252);
+    --bg-color-disabled : rgb(200, 227, 250);
+    --global-transition : all .2s ease-in-out;
+    --color-check-disabled : rgb(57, 161, 252);
+}
+body{
+    font-family: sans-serif;
+    background-color: aliceblue;
+    font-size: 1.6rem;
+}
+/* header */
+#main-heading{
+    background-color: rgb(36, 36, 61);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35vh;
+
+}
+.main{
+    width: 50%;
+}
+.addition{
+    width: 80%;
+    color: aliceblue;
+    background-color: rgb(46, 52, 71);
+}
+.submit{
+    width: 15%;
+    background-color: orange;
+    color: #fff;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.submit, .addition{
+    padding: 1.8rem 1.2rem;
+    border-radius: .5rem;
+    margin: 1.5rem 0;
+    border: 0;
+    font-size: 1.2rem;
+
+}
+/* main-content */
+
+.container{
+    
+    display: flex;
+    /* justify-content: flex-start; */
+    align-items: center;
+    /* height: 65vh; */
+    flex-direction: column;
+}
+.stats{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 50vw;
+    list-style-type: none;
+    
+}
+.stats li{
+    background-color: rgb(36, 36, 61);
+    margin: 3rem;
+    border-radius: .6rem;
+    padding: .5rem .8rem;
+    border: 0;
+    color: aliceblue;
+    font-size: 1.2rem;
+    font-weight: 100;
+}
+  #remaining-tasks, #completed-tasks, #total-tasks{
+    position: fixed;
+    margin: -.5rem .3rem;
+    z-index: 10;
+    background-color: rgb(0, 117, 156);
+   padding: .5rem .8rem;
+   border-top-right-radius : .6rem;
+   border-bottom-right-radius : .6rem;
+   
+}
+.todos{
+list-style-type: none;
+width: 50vw;
+margin-bottom: 7rem;
+
+}
+.todos li{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 2.4rem 1.6rem;
+    margin-bottom: 1.6rem;
+    border-radius: .6rem;
+}
+.todos li div{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.todos li.complete{
+    background-color: var(--bg-color-disabled);
+    text-decoration: line-through;
+    color: var(--color-disabled);
+}
+
+input[type='checkbox']{
+    appearance: none;
+    background-color: transparent;
+    margin: 0;
+    width: 2.4rem;
+    height: 2.4rem;
+    border: .2rem solid #000;
+    border-radius: 100%;
+    display: grid;
+    place-content: center;
+}
+
+input[type='checkbox']::before{
+    content: "\2713";
+    color: #fff;
+    transform: scale(0);
+    transition: var(--global-transition);
+}
+input[type='checkbox']:checked{
+    background-color: var(--color-check-disabled
+    );
+    border-color: var(--color-disabled);
+}
+input[type='checkbox']:checked::before{
+    transform: scale(1);
+}
+
+.todos li button{
+    border: 0;
+    padding: .25rem;
+    display: grid;
+    place-content: center;
+    background-color: transparent;
+}
+.todos li button svg{
+    width: 2rem;
+    height: 2rem;
+    color: var(--color-disabled);
+}
+.todos li button svg path{
+    transition: var(--global-transition);
+}
+.todos li button svg:hover{
+    stroke: #000;
+}
+
+.todos li button:active svg{
+    transform : scale(.8);
+}
+.todos li span{
+    padding: 2px;
+    border-radius: 6px;
+    transition: var(--global-transition);
+}
+
+
+.todos li span:focus{
+    background-color: #fff;
+    outline: none;
+}
+
+.todos li span[contenteditable]:hover{
+    background-color: aliceblue;
+}
+
+
+
+
+
+
+@media (max-width : 1136px){
+    html{
+        font-size: 60%;
+    }
+    .submit, .addition{
+        display: block;
+        width: 100%;
+    }
+}
+@media (max-width : 768px){
+    html{
+        font-size: 50%;
+    }
+    .submit, .addition{
+        display: block;
+        width: 100%;
+    }
+    .stats, .todos{
+        width: 60vw;
+    }
+}
+@media (max-width : 500px){
+    html{
+        font-size: 40%;
+    }
+    .submit, .addition{
+        display: block;
+        width: 100%;
+    }
+    .stats, .todos{
+        width: 70vw;
+    }
+}
